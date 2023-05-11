@@ -1,0 +1,150 @@
+#app {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+@font-face {
+    font-family: 'Rubik';
+    src: url("@/assets/fonts/Rubik-Regular.woff"),
+    url("@/assets/fonts/AnyConv.com__Rubik-Regular.woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Rubik';
+    src: url("@/assets/fonts/Rubik-Medium.woff"),
+    url("@/assets/fonts/AnyConv.com__Rubik-Medium.woff2");
+    font-weight: 500;
+    font-style: bold;
+    font-display: swap;
+  }
+  
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  html {
+      scroll-behavior: smooth;
+  }
+  hero {
+      text-align: left;
+      font-family: Rubik;
+      font-size: 58px;
+      font-weight: 500;
+      line-height: 68px;
+      letter-spacing: 0px;
+  }
+  h1 {
+      font-family: Rubik;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 43px;
+      letter-spacing: 0px;
+      text-align: center;
+  }
+  h2 {
+      font-family: Rubik;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 38px;
+      letter-spacing: 0px;
+      text-align: center;
+  
+  }
+  h3 {
+      font-family: Rubik;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 34px;
+      letter-spacing: 0px;
+      text-align: left;
+  
+  }
+  h4 {
+      font-family: Rubik;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28px;
+      letter-spacing: 0px;
+      text-align: left;
+  }
+  h5 {
+      font-family: Rubik;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0px;
+      text-align: left;
+  
+  }
+  h6 {
+      font-family: Rubik;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: left;
+  }
+  
+  p {
+      font-family: Rubik;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: #363940;
+  
+  }
+  .small-paragraph {
+      font-family: Rubik;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: center;
+      color: #95a1bb;
+      margin-top:20px;
+      margin-bottom: 20px;
+      max-width: 620px;
+  
+  }
+  .container{
+      width: 980px;
+      margin: 10px auto;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+  }
+  a {
+    font-family: "Rubik", sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color:#6E38F7;
+}
+a:hover {
+    text-decoration: none;
+    color:#6E38F7;
+}
+.active{
+    display:block;
+}
+  
+@media (max-width: 920px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 320px;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 20px 16px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    
+    }
+}
