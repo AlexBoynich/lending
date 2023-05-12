@@ -4,7 +4,7 @@
 
         <swiper class="swiper container" :options="swiperOption">
             <swiper-slide
-                v-for="(slide, index) in data.social.content"
+                v-for="(slide, index) in socialInfo.content"
                 :key="index"
             >
                 <img :src="slide.icon"/>
@@ -19,6 +19,7 @@
     import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
     import 'swiper/css/swiper.css'
     import axios from 'axios';
+    import { mapActions, mapGetters } from 'vuex';
     export default {
         name: 'Slider',
         components: {
@@ -39,21 +40,13 @@
             }
         },
         mounted() {
-            axios 
-            .get('/api/data.json') 
-            .then((response) => {
-            this.data = response.data;
-            console.log(this.data.posts.title)
-            })
-            .catch(function (error) {
-            // обработка ошибки
-            console.log(error);
-            })
-            .finally(function () {
-                // выполняется всегда
-            });
+            this.getSocialInfo();
         },
+        methods: {
+            ...mapActions('slider', ['getSocialInfo']),
+        },  
         computed: {
+            ...mapGetters('slider', ['socialInfo']),
             swiperOption() {
                 return {
                     slidesPerView: 1,

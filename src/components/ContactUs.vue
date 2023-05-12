@@ -36,7 +36,7 @@
                     description: this.userDescription,
                 })
                 .then((response) => {
-                    console.log(response);
+                    console.log();
                 })
                 .catch(function (error) {
                     console.log(error);

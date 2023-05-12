@@ -1,14 +1,14 @@
 <template>
     <section>
         <h2>My social networks</h2>
-        <p class="small-paragraph">{{ data.social.subtitle }}</p>
+        <p class="small-paragraph">{{ socialInfo.subtitle }}</p>
         <Slider/>
     </section>
 </template>
 
 <script>
-    import axios from 'axios';
     import Slider from '@/components/Slider.vue';
+    import { mapActions, mapGetters } from 'vuex';
     export default {
         name: 'SocialNetworks',
         components: {
@@ -19,20 +19,14 @@
                 data: [],
             }
         },
+        computed: {
+            ...mapGetters('slider', ['socialInfo'])
+        },
+        methods: {
+            ...mapActions('slider', ['getSocialInfo'])
+        },
         mounted() {
-            axios 
-            .get('/api/data.json') 
-            .then((response) => {
-            this.data = response.data;
-            console.log(this.data.posts.title)
-            })
-            .catch(function (error) {
-            // обработка ошибки
-            console.log(error);
-            })
-            .finally(function () {
-                // выполняется всегда
-            });
+            this.getSocialInfo()
         },
     }
 </script>

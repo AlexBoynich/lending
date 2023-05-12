@@ -1,8 +1,8 @@
 <template>
     <section class="container">
         <div class="about">
-            <h2 class="name">{{data.promo.title}}</h2>
-            <p>{{data.promo.description}}</p> 
+            <h2 class="name">{{promoList.title}}</h2>
+            <p>{{promoList.description}}</p> 
             <a class="scroll" href="#skills">{{scroll}}</a> 
         </div>
     <img src="@/assets/$.png">
@@ -10,30 +10,21 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex';
 export default {
     data:() => {
         return {
-            name: 'Alex',
-            info: 'frontend-developer',
             scroll: 'Scroll to more',
-            data: [],
         }
     },
+    computed: {
+        ...mapGetters('main', ['promoList'])
+    },
+    methods: {
+        ...mapActions('main', ['getPromo'])
+    },
     mounted() {
-    axios 
-    .get('/api/data.json') 
-    .then((response) => {
-      this.data = response.data;
-      console.log(this.data.posts.title)
-    })
-    .catch(function (error) {
-    // обработка ошибки
-    console.log(error);
-    })
-    .finally(function () {
-        // выполняется всегда
-    });
+        this.getPromo();
     },
 }
 </script>

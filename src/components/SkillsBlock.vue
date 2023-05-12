@@ -4,7 +4,7 @@
         <div class="skillsWrapper">
         <div
             :class=" ['drop-content', {'drop-content-active': index === activeIndex }] "
-            v-for="(item, index) in data.skills.content"
+            v-for="(item, index) in skillsList.content"
             :key="index"
         >
                 <div class="skillsItemTitle">
@@ -19,37 +19,21 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex';
 export default {
-    name: 'SkillsBlock',
     data : () => {
         return {
             activeIndex: null,
-            skillsList: [
-                {title: 'Html', text:"Do you sometimes have the feeling that you're running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.<br> <br>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”"},
-                {title: 'CSS', text:"Do you sometimes have the feeling that you're running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.<br> <br>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”"},
-                {title: 'JavaScript', text:"Do you sometimes have the feeling that you're running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.<br> <br>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”"},
-                {title: 'Vue', text:"Do you sometimes have the feeling that you're running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.<br> <br>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”"}
-            ],
-            data: [],
         }
     },
     mounted() {
-    axios 
-    .get('/api/data.json') 
-    .then((response) => {
-      this.data = response.data;
-      console.log(this.data.skills)
-    })
-    .catch(function (error) {
-    // обработка ошибки
-    console.log(error);
-    })
-    .finally(function () {
-        // выполняется всегда
-    });
+        this.getSkillsInformation();
     },
+    computed: {
+        ...mapGetters('skills', ['skillsList'])
+    }, 
     methods: {
+        ...mapActions('skills', ['getSkillsInformation']),
         checkboxToggle(index) {
                 if ( this.activeIndex === index) {
                     this.activeIndex = null
@@ -60,7 +44,7 @@ export default {
         isActive: (index) => {
             return (index === 'activeIndex') ? true : false;
         }
-    }
+    },
 }
 </script>
 
