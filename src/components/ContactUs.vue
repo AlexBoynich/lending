@@ -1,6 +1,6 @@
 <template>
     <section class="form container">
-        <h2 id="contact">Contact us</h2>
+        <h2 id="contactUs">Contact us</h2>
         <p class="small-paragraph">Life is 10% what happens to you and 90% how you react to it. It does not matter how slowly you go as long as you do not stop. Confucius.</p>
         <form class="form">
             <div class="name-email">

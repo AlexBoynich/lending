@@ -6,7 +6,7 @@
             <p class="postText">{{ post.description }}</p>
             <div class="dateAndA">
                 <p class="small-paragraph">{{ post.date }}</p>
-                <a href="#">READ MORE</a>
+                <router-link to="/blog/post/:id">READ MORE</router-link>
             </div>
         </div>
     </div>
@@ -33,7 +33,6 @@ img {
 }
 a{
     float: right;
-    pointer-events: none;
 }
 .dateAndA{
     display: flex;

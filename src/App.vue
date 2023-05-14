@@ -3,15 +3,7 @@
     <Header msg="Navigation Menu"
     v-bind:navMenu="navMenu"
     />
-    <About id="about"/>
-    <SkillsBlock class="skills-block" id="skills"/>
-    <SocialNetworks class="social-networks-block" id="social"/>
-    <LastPosts
-    v-bind:lastPosts="postContent" id="blog"
-    />
-    <ContactUs id="contactUs"
-    />
-  
+    <router-view/>
     <Footer/>
   </div>
 </template>
@@ -32,11 +24,11 @@ export default {
     return {
       data: [],
       navMenu: [
-        {title: 'ABOUT', id: '#about'},
-        {title: 'SKILLS', id: '#skills'},
-        {title:'SOCIAL', id: '#social'},
-        {title:'CONTACT US', id: '#contactUs'},
-        {title:'BLOG', id: '#blog'}
+        {title: 'ABOUT', id: '#about', path: '/', selector: '#about'},
+        {title: 'SKILLS', id: '#skills', path: '/', selector: '#skills'},
+        {title:'SOCIAL', id: '#social', path: '/', selector: '#social'},
+        {title:'CONTACT US', id: '#contactUs', path: '/', selector: '#contactUs'},
+        {title:'BLOG', id: '#blog', path: '/blog', selector: ''}
       ],
     }
   },
@@ -46,22 +38,10 @@ export default {
   methods: {
     ...mapActions('post',['getData']),
   },
-  mounted() {this.getData()},
-  // async mounted() {
-  //   axios 
-  //   .get('/api/data.json') 
-  //   .then((response) => {
-  //     this.data = response.data;
-  //     console.log(this.data.posts.title)
-  //   })
-  //   .catch(function (error) {
-  //   // обработка ошибки
-  //   console.log(error);
-  // })
-  // .finally(function () {
-  //   // выполняется всегда
-  // });
-  // },
+  mounted() {
+    this.getData()
+  },
+
   components: {
     Header,
     SkillsBlock,

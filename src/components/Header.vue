@@ -6,16 +6,18 @@
              @click="toggleMenu"
             >
         </div>
-        <ul :class="{'active': menuIsShow}">
-            <nav :class="{'active': menuIsShow}">
-            <Navitem 
-            v-for="nav of navMenu"
-            v-bind:nav="nav"
-            v-bind:menuIsShow="menuIsShow"
-            @onNavClick="toggleMenu()"
-            />
-        </nav>
-        </ul>
+        <div class="nav">
+            <ul :class="{'active': menuIsShow}">
+                <nav :class="{'active': menuIsShow}">
+                <Navitem 
+                v-for="nav of navMenu"
+                v-bind:nav="nav"
+                v-bind:menuIsShow="menuIsShow"
+                @onNavClick="toggleMenu()"
+                />
+            </nav>
+            </ul>
+         </div>
     </div>
 </template> 
 
@@ -43,6 +45,7 @@ import Navitem from './Navitem.vue';
 <style scoped>
 .header{
     display: flex;
+    align-items: center;    
     justify-content: space-between;
 }
 ul{
@@ -61,6 +64,9 @@ img {
     display: none;
 }
 nav{
+    display: flex;
+}
+.nav{
     display: flex;
 }
 

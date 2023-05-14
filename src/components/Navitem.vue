@@ -1,10 +1,9 @@
 <template>
-    <li>
-       <a
-        href="#"
-        :href="nav.id"
-        @click='$emit("onNavClick")'
-        >{{nav.title}}</a>
+    <li @click='$emit("onNavClick")'>
+       <router-link
+       :to="nav.path"
+       v-scroll-to="nav.selector"
+        >{{nav.title}}</router-link>
     </li>
 </template>
 
