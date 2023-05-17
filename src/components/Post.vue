@@ -6,7 +6,7 @@
             <p class="postText">{{ post.description }}</p>
             <div class="dateAndA">
                 <p class="small-paragraph">{{ post.date }}</p>
-                <router-link to="/blog/post/:id">READ MORE</router-link>
+                <p class="rtr-link" @click="$router.push({name: 'post', params: {id: post.link}})">READ MORE</p>
             </div>
         </div>
     </div>
@@ -23,6 +23,13 @@ export default {
 </script>
 
 <style scoped>
+.rtr-link{
+    color:#6E38F7
+}
+.rtr-link:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .post{
     display: flex;
 }
